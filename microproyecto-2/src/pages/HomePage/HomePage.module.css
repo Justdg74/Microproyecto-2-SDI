@@ -1,0 +1,53 @@
+.carousel{
+  height: 400px;
+  background-color: #b6f49e;
+
+}
+
+.containerEstrenos {
+  flex-direction: column;
+  background: #9ac3f5;
+  min-height: 100vh;
+  padding: 30px;
+  border-color: solid 100px rgb(0, 0, 0);
+}
+
+.containerProximos {
+  flex-direction: row;
+  background: #f19ef4;
+  min-height: 100vh;
+  padding: 30px;
+  border-color: solid 100px rgba(0, 0, 0, 0.623);
+}
+
+
+
+  .title {
+    background-color: #1c1e1f;
+    font-size: 2em;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    
+  }
+  
+  .movies {
+    flex-wrap: wrap;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+  
+  .loading {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    margin-top: 32px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  
+  

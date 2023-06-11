@@ -1,0 +1,72 @@
+.containerEstrenos {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    height: auto;
+    background-image: linear-gradient(205deg, #6a6a6f 0, #1f3259 50%, #000043 100%);
+    border-radius: 15px;
+    margin: 10px;
+    width: 300px;
+    
+   
+  }
+
+  .containerProximos{
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    height: auto;
+    background-image: radial-gradient(circle at 56.16% 120.44%, #fe8f62 0, #ff8564 8.33%, #ff7967 16.67%, #ff6c6b 25%, #fd5e6e 33.33%, #f84e73 41.67%, #f23c78 50%, #ea287e 58.33%, #e10e86 66.67%, #d6008f 75%, #ca0098 83.33%, #bb00a3 91.67%, #aa00ae 100%);
+    border-radius: 15px;
+    margin: 10px;
+    width: 300px;
+
+  }
+  
+  .name {
+    font-size: 20px;
+  }
+  
+  .name:hover {
+    color: #ff9800;
+    cursor: pointer;
+  }
+  
+  .name .link {
+    font-size: inherit;
+    font-style: inherit;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .infoContainer {
+    margin: 0.5rem 0;
+  }
+  
+  .subtitle {
+    color: rgb(158, 158, 158);
+    font-weight: 300;
+    font-size: 15px;
+  }
+  
+  .subtitleInfo {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  
+  .image {
+    border-color: solid white;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px 25px 25px 25px;
+   
+  }
+  
+  .rightSideContainer {
+    color: rgb(255, 255, 255);
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
