@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { MovieCard, ProxMovieCard } from "../../components/MovieCard/MovieCard";
 import { useMovie } from "../../hooks/useMovie";
+import {Carousel} from "../../components/Carousel/Carousel"
 import styles from "./HomePage.module.css";
-import { Modal } from "../../components/Modal/Modal";
+import images from "../../exports/images"
 
 export function HomePage() {
   const { isLoading, movies, proxMovies, getMovies, getProxMovies } =
@@ -12,16 +13,17 @@ export function HomePage() {
     if (!isLoading) {
       getMovies();
       getProxMovies();
-    }
+      
+        }
   }, [getMovies, getProxMovies]);
 
   return (
     <>
-      <div className={styles.carousel}>
-        <h1 className={styles.title}>CARRUSEL DE IMAGENES</h1>
+      <div className={styles.carouselContent}>
+        <Carousel images = {images} Key = {images.indexOf}/>
       </div>
       <div className={styles.containerEstrenos}>
-        <h1 className={styles.title}>Lista de Peliculas</h1>
+        <h1 className={styles.title}>LISTA DE PELICULAS</h1>
         <div className={styles.movies}>
           {isLoading ? (
             <p className={styles.loading}>Loading...</p>
@@ -31,7 +33,7 @@ export function HomePage() {
         </div>
       </div>
       <div className={styles.containerProximos}>
-        <h1 className={styles.title}>Proximos Estrenos</h1>
+        <h1 className={styles.title}>PROXIMAMENTE</h1>
         <div className={styles.movies}>
           {isLoading ? (
             <p className={styles.loading}>Loading...</p>
@@ -42,7 +44,6 @@ export function HomePage() {
           )}
         </div>
       </div>
-      <Modal/>
     </>
   );
 }

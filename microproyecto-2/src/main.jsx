@@ -34,7 +34,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               </PublicRoute>
             }
           />
-          <Route path="/register" element={<h1>REGISTRO</h1>} />
           <Route path="/adminview" element={<h1>ADMIN VIEW</h1>} />
         </Route>
       </Routes>

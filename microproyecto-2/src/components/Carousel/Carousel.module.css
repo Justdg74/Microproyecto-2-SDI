@@ -1,0 +1,49 @@
+.container {
+	width: 100vw;
+	height: 30%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	
+}
+
+.slide {
+	max-width: 100%;
+	height: auto;
+	opacity: 0;
+	transition: opacity 0.75s ease-in-out;
+}
+
+.slide.active {
+	opacity: 1;
+}
+
+.leftButton{
+	height: 90vh;
+	width: 90vw;
+	background-color: rgba(63, 64, 64, 0.808);
+	border-color: none;
+	font-size: 100px;
+	cursor: pointer;
+	transition: .3s ease all;
+}
+
+.leftButton:hover{
+	background: rgb(79, 81, 78);
+}
+
+.rightButton{
+	height: 90vh;
+	width: 90vw;
+	background-color: rgba(63, 64, 64, 0.808);
+	border-color: none;
+	font-size: 100px;
+	cursor: pointer;
+	transition: .3s ease all;
+
+}
+
+.rightButton:hover{
+	background: rgb(79, 81, 78);
+}

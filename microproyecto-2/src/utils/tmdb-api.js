@@ -31,6 +31,12 @@ export async function fetchProxMovies() {
 
 export async function fetchInfoMovies(movieId) {
   return axiosInstance.get(`/${movieId}/credits`,options.params,options.headers);
+  
+}
+
+export async function fetchDateMovies(movieId) {
+  return axiosInstance.get(`/${movieId}/release_dates`,options.params,options.headers);
+  
 }
 
 
