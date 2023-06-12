@@ -8,7 +8,7 @@ import { useMovie } from "../../hooks/useMovie";
 
 export function MovieCard({ movie }) {
   const [modalState1, changeModalState1] = useState(false);
-  const { isLoading, infoMovie, crewMovie, dateMovies, getMovieInfo, getCrewMovie, getDateMovies } =
+  const { isLoading, infoMovie, crewMovie,  getMovieInfo, getCrewMovie} =
   useMovie();
 
 
@@ -16,10 +16,9 @@ export function MovieCard({ movie }) {
     if (!isLoading) {
       getMovieInfo(JSON.stringify(movie.id));
       getCrewMovie(JSON.stringify(movie.id));
-      getDateMovies(JSON.stringify(movie.id));
       
     }
-  }, [getMovieInfo, getCrewMovie, getDateMovies]);
+  }, [getMovieInfo, getCrewMovie]);
 
 
   return (
@@ -65,17 +64,17 @@ export function MovieCard({ movie }) {
 
 export function ProxMovieCard({ movie }) {
   const [modalState1, changeModalState1] = useState(false);
-  const { isLoading, infoMovie, crewMovie, dateMovies, getMovieInfo, getCrewMovie, getDateMovies } =
+  const { isLoading, infoMovie, crewMovie,  getMovieInfo, getCrewMovie } =
   useMovie();
 
   useEffect(() => {
     if (!isLoading) {
       getMovieInfo(JSON.stringify(movie.id));
       getCrewMovie(JSON.stringify(movie.id));
-      getDateMovies(JSON.stringify(movie.id));
+     
       
     }
-  }, [getMovieInfo, getCrewMovie, getDateMovies]);
+  }, [getMovieInfo, getCrewMovie]);
 
   return (
     <div className={styles.containerProximos}>

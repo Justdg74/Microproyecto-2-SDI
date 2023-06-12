@@ -85,7 +85,7 @@ export function useMovie() {
     }
   }, []);
 
-  const getDateMovies = useCallback(async (id) => {
+  {/*const getDateMovies = useCallback(async (id) => {
     try {
       setIsLoading(true);
       const { data } = await fetchDateMovies(id);
@@ -96,7 +96,7 @@ export function useMovie() {
     } catch (error) {
       console.error("FAILED GET MOVIES", error);
     }
-  }, []);
+  }, []);*/}
 
   return {
     isLoading,
@@ -105,12 +105,12 @@ export function useMovie() {
     proxMovies,
     infoMovie,
     crewMovie,
-    dateMovies,
+    
     getMovies,
     getMovie,
     getProxMovies,
     getMovieInfo,
     getCrewMovie,
-    getDateMovies,
+    
   };
 }

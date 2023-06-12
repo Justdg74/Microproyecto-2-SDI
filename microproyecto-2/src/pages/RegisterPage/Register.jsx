@@ -24,7 +24,7 @@ export function RegisterPage() {
 
     await registerWithEmailAndPassword({
       userData: formData,
-      onSuccess,
+      onSuccess: () => navigate(HOME_URL),
       onFail,
     });
   };
