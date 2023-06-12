@@ -1,26 +1,27 @@
 import { useCallback, useState } from "react";
 import {
-  fetchMovieById,
   fetchMovies,
-  fetchProxMovies,
-  fetchInfoMovies,
   fetchDateMovies,
+  fetchInfoMovies,
+  fetchProxMovies,
+  fetchMovieById,
 } from "../utils/tmdb-api";
 
 export function useMovie() {
   const [isLoading, setIsLoading] = useState(false);
-  const [movies,  setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [proxMovies, setProxMovies] = useState([]);
   const [infoMovie, setInfoMovie] = useState([]);
   const [crewMovie, setCrewMovie] = useState([]);
   const [movie, setMovie] = useState(null);
   const [dateMovies, setDateMovies] = useState([]);
+  const [searchKey, setSearchKey] = useState("");
 
   const getMovies = useCallback(async () => {
     try {
       setIsLoading(true);
       const { data } = await fetchMovies();
-      
+
       setMovies(data.results);
       setIsLoading(false);
 
@@ -58,13 +59,12 @@ export function useMovie() {
 
   const getMovieInfo = useCallback(async (id) => {
     try {
-      
       setIsLoading(true);
       const { data } = await fetchInfoMovies(id);
-    
+
       setInfoMovie(data.cast);
       setIsLoading(false);
-      
+
       return infoMovie;
     } catch (error) {
       console.error("FAILED GET MOVIES", error);
@@ -73,13 +73,12 @@ export function useMovie() {
 
   const getCrewMovie = useCallback(async (id) => {
     try {
-      
       setIsLoading(true);
       const { data } = await fetchInfoMovies(id);
-    
+
       setCrewMovie(data.crew);
       setIsLoading(false);
-      
+
       return crewMovie;
     } catch (error) {
       console.error("FAILED GET MOVIES", error);
@@ -98,7 +97,6 @@ export function useMovie() {
       console.error("FAILED GET MOVIES", error);
     }
   }, []);
-
 
   return {
     isLoading,

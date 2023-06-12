@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Carousel.module.css";
 
-export function Carousel({ images }) {
+export function Carousel({ children, images }) {
   const [imagenActual, setImagenActual] = React.useState(0);
   const cantidad = images?.length;
 
@@ -32,6 +32,8 @@ export function Carousel({ images }) {
         );
       })}
       <button className= {styles.rightButton} onClick={nextImage}>→</button>
+      {children}
     </div>
+    
   );
 }

@@ -5,7 +5,6 @@
   background-color: rgb(27, 26, 26);
   justify-content: center;
   align-items: center;
-
 }
 
 .containerEstrenos {
@@ -13,6 +12,9 @@
   background: #05182f;
   min-height: 100vh;
   border-color: solid 100px rgb(0, 0, 0);
+  display: flex;
+  
+  
  
 }
 

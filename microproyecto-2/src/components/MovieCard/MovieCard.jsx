@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import styles from "./MovieCard.module.css";
 import { Link } from "react-router-dom";
 import { MOVIE_DETAIL_URL } from "../../constants/urls";
-import { Modal } from "../../components/Modal/Modal";
+import { Modal, ModalProx } from "../../components/Modal/Modal";
 import { useMovie } from "../../hooks/useMovie";
 
 export function MovieCard({ movie }) {
   const [modalState1, changeModalState1] = useState(false);
   const { isLoading, infoMovie, crewMovie, dateMovies, getMovieInfo, getCrewMovie, getDateMovies } =
   useMovie();
+
 
   useEffect(() => {
     if (!isLoading) {
@@ -20,12 +21,13 @@ export function MovieCard({ movie }) {
     }
   }, [getMovieInfo, getCrewMovie, getDateMovies]);
 
+
   return (
     <div className={styles.containerEstrenos}>
       <div>
         <div className= {styles.imageContainer}>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
           alt={movie.title}
           className={styles.image}
         />
@@ -40,17 +42,18 @@ export function MovieCard({ movie }) {
         </div>
         </div>
       </div>
+      
       {(infoMovie.map((info) => <Modal
         state = {modalState1}
         changeState = {changeModalState1}
         title = {movie.title}
         language = {movie.original_language}
-        genre = {movie.genre_ids.toString()}
-        cast = {`${infoMovie[0].name}, ${infoMovie[1].name}, ${infoMovie[2].name}, ${infoMovie[3].name}, ${infoMovie[4].name}, ${infoMovie[5].name},...` }
+        genre = {movie.genres?.map(genre => genre.name).join(", ")}
+        cast = {infoMovie.map(person => person.name).join(", ")}
         sinopsis = {movie.overview}
-        
-        director = {JSON.stringify(crewMovie.filter(({job})=> job ==='Director')[0])}
-        fechaEstreno = {""}
+        director = {crewMovie.find(person => person.job === "Director")?.name}
+        fechaEstreno = {movie.release_date}
+        /*image = {`https://image.tmdb.org/t/p/original${movie.poster_path}`}*/
         key = {info.id}
       />))}
     </div>
@@ -94,17 +97,16 @@ export function ProxMovieCard({ movie }) {
         </div>
         </div>
       </div>
-      {(infoMovie.map((info) => <Modal
+      {(infoMovie.map((info) => <ModalProx
         state = {modalState1}
         changeState = {changeModalState1}
         title = {movie.title}
         language = {movie.original_language}
-        genre = {movie.genre_ids.toString()}
-        cast = {`${infoMovie[0].name}, ${infoMovie[1].name}, ${infoMovie[2].name}, ${infoMovie[3].name}, ${infoMovie[4].name}, ${infoMovie[5].name},...` }
+        genre = {movie.genres?.map(genre => genre.name).join(", ")}
+        cast = {infoMovie.map(person => person.name).join(", ")}
         sinopsis = {movie.overview}
-        
-        director = {JSON.stringify(crewMovie.filter(({job})=> job ==='Director')[0])}
-        fechaEstreno = {""}
+        director = {crewMovie.find(person => person.job === "Director")?.name}
+        fechaEstreno = {movie.release_date}
         key = {info.id}
       />))}
     </div>

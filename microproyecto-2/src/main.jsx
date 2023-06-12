@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import {
   HOME_URL,
   LIST_URL,
+  LOGIN_URL,
   FAVORITES_URL,
   PROFILE_URL,
   REGISTER_URL,
@@ -16,8 +17,9 @@ import { RegisterPage } from "./pages/RegisterPage/Register.jsx";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 import { PublicRoute } from "./components/PublicRoute/PublicRoute";
 import { Layout } from "./layout/Layout.jsx";
-
+import { LoginPage } from "./pages/LoginPage/LoginPage.jsx";
 import "./index.css";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -31,6 +33,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             element={
               <PublicRoute>
                 <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path={LOGIN_URL}
+            element={
+              <PublicRoute>
+                <LoginPage />
               </PublicRoute>
             }
           />
